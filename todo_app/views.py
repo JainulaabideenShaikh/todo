@@ -31,3 +31,12 @@ def loginn(request):
             return redirect('/loginn')
 
     return render(request,'login.html')
+
+def todo(request):
+    if request.method=='POST':
+        title = request.POST.get('title')
+        print(title)
+        obj = models.Todoo(title=title,user = request.user)
+        obj.save()
+    return render(request,'todo.html')
+
