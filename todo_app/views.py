@@ -43,3 +43,20 @@ def todo(request):
     res = models.Todoo.objects.filter(user=request.user).order_by('-date')
     return render(request,'todo.html',{'res' : res})
 
+def edit_todo(request,srno):
+    if request.method=='POST':
+        title = request.POST.get('title')
+        print(title)
+        obj = models.Todoo.objects.get(srno=srno)
+        print(obj.title,'old')
+        obj.title=title
+        obj.save()
+        return redirect('/todopage')
+    obj = models.Todoo.objects.get(srno=srno)
+    print(obj.title,'outside')
+    return render(request,'edit_todo.html', {'obj': obj})
+
+def delete_todo(request,srno):
+    obj = models.Todoo.objects.get(srno=srno)
+    obj.delete()
+    return redirect('/todopage')

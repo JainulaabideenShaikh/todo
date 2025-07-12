@@ -25,8 +25,10 @@
             
                 <form method="post">
                     {% csrf_token %}
-                    <input type="text" class="inp" name="title" required placeholder="Add Today`s Task?">
-                    <input type="submit" class="submit-button" value="Add Task">
+                    <input type="text" class="inp" name="title" required placeholder="Add Today`s Task?" value="{{obj.title}}">
+                    <input type="hidden" name="srno" value={{obj.srno}}>
+
+                    <input type="submit" class="submit-button" value="Update Task">
                     
                 </form>
                 {% for todo in res%}
