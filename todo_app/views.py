@@ -60,3 +60,7 @@ def delete_todo(request,srno):
     obj = models.Todoo.objects.get(srno=srno)
     obj.delete()
     return redirect('/todopage')
+
+def signout(request):
+    logout(request)
+    return redirect('loginn')

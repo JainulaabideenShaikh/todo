@@ -21,7 +21,9 @@
                 <div class="heading">
                     Get Things Done
                 </div>
-                <i class="fa-solid fa-right-from-bracket"></i>
+                <div class="anca"><a href="{% url 'signout' %}" class="sign"><i
+                                class="fa-solid fa-right-from-bracket"></i></a></div>
+                
             
                 <form method="post">
                     {% csrf_token %}
